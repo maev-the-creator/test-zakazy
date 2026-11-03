@@ -1,0 +1,122 @@
+/* Тема «Ваниль» — витрина кондитерской: ванильная глазурь, чернильный индиго, фото в арках.
+   Файл КЛИЕНТА (в сайте — css/theme.css): обновления продукта его не трогают.
+   Шрифты и разметка — общие (css/styles.css); здесь только токены и детали оформления.
+
+   Палитра:
+     ванильная глазурь  #F5D97E — первый экран, бейджи, отметки готовых шагов
+     чернильный индиго  #1F2A5C — заголовки, кнопки, подвал (на глазури 9.6:1)
+     кобальт            #2F49C2 — цены, выбранная дата, фокус (на белом 6.9:1)
+     молочный лёд       #F5F6FB — фон страницы
+     голубая коробка    #E3E9F8 — секции, поля выбора
+   Один смелый элемент — арки витрины (фото первого экрана, начинок, «о нас», упаковки);
+   остальное спокойное и плоское: без теней, без рукописного росчерка. */
+
+:root {
+  --vanilla: #F5D97E;
+  --vanilla-deep: #EBC95C;
+
+  --choc: #1F2A5C;            /* индиго: заголовки, кнопки, подвал */
+  --choc-deep: #151D44;
+  --choc-line: rgb(245 246 251 / 0.16);
+  --berry: #2F49C2;           /* кобальт: цены, выбор, фокус */
+  --berry-wash: rgb(47 73 194 / 0.08);
+  --cream: #F5F6FB;           /* фон страницы и светлый текст на индиго */
+  --cream-lite: #FFFFFF;
+  --cream-deep: #E3E9F8;
+  --ink: #161B36;
+  --ink-muted: #4F5675;
+  --line: #DCE2F2;
+  --line-strong: #B6BFDD;
+  --cream-muted: #C6CDEA;
+  --inactive: #6E76A0;        /* белый текст на нём 4.6:1 */
+  --off: #7E849F;
+  --placeholder: #6B7290;
+
+  --fw-display: 700;
+  --r-photo: 28px;
+  --r-field: 14px;
+  --r-step: 28px;
+  --shadow-soft: none;
+  --shadow-bar: 0 -1px 0 rgb(31 42 92 / 0.08), 0 -18px 40px -26px rgb(31 42 92 / 0.45);
+
+  --surface: #FFFFFF;
+  --focus-ring: rgb(47 73 194 / 0.16);
+  --hero-bg: var(--vanilla);
+  --hero-fg: var(--choc);
+  --hero-muted: #3D4470;      /* на глазури 7:1 */
+  --hero-line: rgb(31 42 92 / 0.16);
+  --hero-hover: rgb(31 42 92 / 0.08);
+  --hero-step-border: rgb(31 42 92 / 0.45);
+  --badge-bg: var(--vanilla);
+  --badge-fg: var(--choc);
+  --bar-bg: rgb(255 255 255 / 0.96);
+  --bar-bg-blur: rgb(255 255 255 / 0.86);
+}
+
+html { background: var(--choc); scrollbar-color: var(--line-strong) var(--cream); }
+::selection { background: var(--vanilla); color: var(--choc); }
+
+/* ---------- Первый экран: глазурь, чернила, арка ---------- */
+.hero__scribble { display: none; }
+.hero__title { letter-spacing: -0.035em; line-height: 0.98; }
+.hero__lead { margin-top: 24px; }
+.hero .btn--light { --btn-bg: var(--choc); --btn-fg: var(--cream-lite); --btn-bd: var(--choc); }
+@media (hover: hover) and (pointer: fine) {
+  .hero .btn--light:hover { --btn-bg: var(--choc-deep); --btn-bd: var(--choc-deep); --btn-fg: var(--cream-lite); }
+}
+.hero__steps li::before { font-weight: 600; }
+
+/* Арка витрины: фото первого экрана — окно с полукруглым верхом */
+.hero__media {
+  margin-inline: 0; margin-bottom: 8px;
+  border-radius: 999px 999px var(--r-photo) var(--r-photo); overflow: hidden;
+  background: var(--vanilla-deep);
+}
+.hero__media img { aspect-ratio: 4 / 5; border-radius: 0; }
+@media (min-width: 768px) {
+  .hero__media { margin: clamp(32px, 4vw, 56px) 0; min-height: 520px; border-radius: 999px 999px var(--r-photo) var(--r-photo); }
+  .hero__media img { border-radius: 0; object-position: 42% 50%; }
+}
+@media (min-width: 1240px) {
+  .hero__media { margin-right: 0; }
+}
+
+/* ---------- Каталог: плоские ячейки витрины, фото во внутренней рамке ---------- */
+.dish {
+  border: 0; border-radius: var(--r-step); box-shadow: none; padding: 10px;
+  background: var(--cream-lite);
+}
+.dish__media { border-radius: calc(var(--r-step) - 8px); }
+.dish__body { padding: clamp(14px, 2vw, 20px) clamp(12px, 1.6vw, 16px) 6px; }
+.dish.is-picked { box-shadow: 0 0 0 2px var(--choc); }
+.dish--feature { background: var(--vanilla); }
+.dish--feature .dish__desc, .dish--feature .dish__fillings, .dish--feature .price__unit, .dish--feature .lead-time { color: #3D4470; }
+.dish--feature .dish__price { border-top-color: rgb(31 42 92 / 0.18); }
+.dish--feature .price { color: var(--choc); }
+.badge { font-weight: 700; }
+@media (hover: hover) and (pointer: fine) {
+  .dish:hover { box-shadow: 0 22px 44px -28px rgb(31 42 92 / 0.45); }
+  .dish.is-picked:hover { box-shadow: 0 0 0 2px var(--choc), 0 22px 44px -28px rgb(31 42 92 / 0.45); }
+}
+@media (min-width: 1024px) {
+  .dish--feature .dish__body { padding: 28px 28px 16px; }
+}
+
+/* ---------- Секции ---------- */
+.fillings { background: var(--cream-deep); border-block: 0; }
+.menu, .menu__item { border-color: rgb(31 42 92 / 0.14); }
+.about { background: var(--cream-lite); }
+.fillings__media img, .about__media img, .delivery__media img { border-radius: 999px 999px var(--r-photo) var(--r-photo); }
+.facts { border-top-color: var(--line); }
+.way { border-top-color: var(--line); }
+
+/* ---------- Форма ---------- */
+.step { border: 0; }
+.step.is-invalid { box-shadow: 0 0 0 2px var(--berry); }
+.step__num { border-color: var(--choc); }
+.step.is-done .step__num { background: var(--vanilla); border-color: var(--vanilla); color: var(--choc); }
+.segmented { background: var(--cream-deep); }
+.success { border: 0; }
+
+/* ---------- Подвал ---------- */
+.site-footer .brand__logo { color: var(--vanilla); }

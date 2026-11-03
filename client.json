@@ -8,7 +8,8 @@
     "form": "необязательно: replyNote — как быстро кондитер отвечает",
     "legal": "operator (ИП ФИО или ФИО, самозанятый), inn, ogrnip (только у ИП), address, email, edition — дата редакции документов",
     "photos": "папка с оригиналами: hero, <id десерта>, fillings, chef-hands, gift-box (.png/.jpg), путь от этого файла; \"demo\" — фото демо",
-    "catalog": "десерты, начинки, тексты, контакты — как data/catalog.json; дальше их меняет сам клиент в админке"
+    "catalog": "десерты, начинки, тексты, контакты — как data/catalog.json; дальше их меняет сам клиент в админке",
+    "theme": "свой дизайн: file — css-файл темы (путь от этого файла, станет css/theme.css), metaColor — цвет вкладки браузера на телефоне, iconBg/iconFg/iconAccent — цвета иконки сайта"
   },
   "fictional": false,
   "bakery": {
@@ -22,6 +23,13 @@
   "seo": {},
   "form": {
     "replyNote": "Обычно отвечаем в течение дня — в Telegram или по телефону, который вы указали."
+  },
+  "theme": {
+    "file": "css/theme.css",
+    "metaColor": "#F5D97E",
+    "iconBg": "#1F2A5C",
+    "iconFg": "#F5D97E",
+    "iconAccent": "#2F49C2"
   },
   "legal": {
     "operator": "Тестов Тест Тестович (самозанятый)",
