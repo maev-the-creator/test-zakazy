@@ -1,0 +1,19 @@
+# На Vercel публикуем только сайт. Служебное не выкладываем.
+.claude
+tests
+tools
+apps-script
+docs
+screenshots
+node_modules
+*.md
+package.json
+clients
+handover
+client.json
+product-files.txt
+VERSION
+CHANGELOG.md
+# исходники фото: на сайте используются только images/web/*.webp
+images/*.png
+images/*.jpg

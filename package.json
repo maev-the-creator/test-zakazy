@@ -1,0 +1,21 @@
+{
+  "name": "order-forge",
+  "private": true,
+  "type": "module",
+  "description": "ORDER FORGE «Окно заказов» для кондитерской. Статический сайт без сборки + Google Apps Script.",
+  "scripts": {
+    "test": "TZ=Europe/Moscow node --test tests/logic.test.mjs tests/admin.test.mjs tests/parity.test.mjs tests/load.test.mjs tests/tools.test.mjs",
+    "test:e2e": "node --test tests/e2e.mjs tests/e2e-admin.mjs",
+    "screens": "node tests/screens.mjs",
+    "sync-logic": "node tools/sync-logic.mjs",
+    "build-catalog": "node tools/build-catalog.mjs",
+    "serve": "node tools/static-server.mjs",
+    "mock-server": "node tools/mock-server.mjs",
+    "load-test": "node tools/send-test-requests.mjs",
+    "images": "python3 tools/make-images.py",
+    "apply-client": "node tools/apply-client.mjs",
+    "check-client": "node tools/check-client.mjs",
+    "new-client": "node tools/new-client.mjs",
+    "upgrade": "node tools/upgrade.mjs"
+  }
+}

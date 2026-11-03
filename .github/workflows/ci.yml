@@ -1,0 +1,30 @@
+# Проверки ORDER FORGE на каждый пуш: тесты логики и сервера, сквозные тесты в Chromium, проверка сайта клиента.
+# Публикации из админки («Каталог vN: …») пропускаются: клиент не должен получать письма о CI.
+name: Проверки
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    if: ${{ github.event_name != 'push' || !startsWith(github.event.head_commit.message, 'Каталог v') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Тесты логики, сервера и инструментов
+        run: npm test
+      - name: Сайт клиента (нет следов демо, каталог и фото на месте)
+        run: |
+          if [ -f client.json ]; then node tools/check-client.mjs; else node tools/check-client.mjs clients/regalia.client.json; fi
+      - name: Playwright
+        run: |
+          npm install --no-save --no-package-lock playwright@1.63.0
+          npx playwright install --with-deps chromium
+      - name: Сквозные тесты (демо-режим, без заявок в настоящую таблицу)
+        run: npm run test:e2e

@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- client:head -->
+  <title>Ваниль — Торты на заказ · Казань · заявка онлайн</title>
+  <meta name="description" content="Выберите десерт и свободную дату, оставьте контакт — готовая заявка сразу придёт кондитеру. Оплаты на странице нет.">
+  <meta name="theme-color" content="#5B3A29">
+  <meta name="color-scheme" content="light">
+  <meta property="og:title" content="Ваниль — Торты на заказ · Казань">
+  <meta property="og:description" content="Выберите десерт и дату — заявка сразу придёт кондитеру.">
+  <meta property="og:image" content="images/web/hero-1152.webp">
+  <meta property="og:type" content="website">
+  <!-- /client:head -->
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Unbounded:wght@500;600;700&display=swap">
+  <link rel="preload" as="image" imagesrcset="images/web/hero-sq-640.webp 640w, images/web/hero-sq-1024.webp 1024w" imagesizes="100vw" media="(max-width: 767px)" fetchpriority="high">
+  <link rel="preload" as="image" imagesrcset="images/web/hero-768.webp 768w, images/web/hero-1152.webp 1152w, images/web/hero-1536.webp 1536w" imagesizes="(min-width: 1240px) 760px, 55vw" media="(min-width: 768px)" fetchpriority="high">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script type="module" src="js/app.js"></script>
+  <link rel="modulepreload" href="config.js">
+  <link rel="modulepreload" href="data/catalog.js">
+  <link rel="modulepreload" href="js/dom.js">
+  <link rel="modulepreload" href="js/render.js">
+  <link rel="modulepreload" href="js/logic.generated.js">
+  <link rel="modulepreload" href="js/api.js">
+  <link rel="modulepreload" href="js/mock-backend.js">
+  <link rel="modulepreload" href="js/form.js">
+  <link rel="modulepreload" href="js/calendar.js">
+  <link rel="modulepreload" href="js/photo.js">
+  <link rel="modulepreload" href="js/motion.js">
+</head>
+<body>
+  <a class="skip-link" href="#order">Перейти к заявке</a>
+
+  <header class="site-header" id="top">
+    <div class="container site-header__inner">
+      <a class="brand" href="#top" aria-label="На главную">
+        <span class="brand__logo" data-bind="bakery.logo"><!-- client:logo -->VANIL<!-- /client:logo --></span>
+        <span class="brand__tagline" data-bind="bakery.tagline"></span>
+      </a>
+      <nav class="social" aria-label="Соцсети">
+        <a class="social__link" data-href="links.instagram" href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/></svg>
+        </a>
+        <a class="social__link" data-href="links.telegram" href="#" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M21 4.5 2.9 11.4c-.8.3-.8 1.4.1 1.6l4.4 1.4 1.7 5.3c.2.7 1.1.9 1.6.4l2.5-2.4 4.6 3.4c.6.4 1.4.1 1.6-.6L22.3 5.8c.2-.9-.6-1.6-1.3-1.3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m8.2 14.2 9.3-6.3-7 7.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <h1 class="hero__title" id="hero-title"><span class="hero__line">Десерты</span> <span class="hero__line">к вашей</span> <span class="hero__line">дате</span></h1>
+          <svg class="scribble hero__scribble" viewBox="0 0 320 24" preserveAspectRatio="none" aria-hidden="true"><path d="M3 15c38-6 79-9 121-8 33 1 61 5 96 4 33-1 62-6 97-9" pathLength="1"/></svg>
+          <p class="hero__lead" data-bind="hero.lead"></p>
+          <a class="btn btn--light hero__cta" href="#catalog"><span data-bind="hero.cta">Смотреть десерты</span> <span aria-hidden="true">↓</span></a>
+        </div>
+        <figure class="hero__media">
+          <picture>
+            <source media="(max-width: 767px)" srcset="images/web/hero-sq-640.webp 640w, images/web/hero-sq-1024.webp 1024w" sizes="100vw">
+            <source media="(min-width: 768px)" srcset="images/web/hero-768.webp 768w, images/web/hero-1152.webp 1152w, images/web/hero-1536.webp 1536w" sizes="(min-width: 1240px) 760px, 55vw">
+            <img src="images/web/hero-1152.webp" width="1536" height="1024" alt="" data-alt="hero.alt" fetchpriority="high" decoding="async">
+          </picture>
+        </figure>
+        <ol class="hero__steps" data-list="hero.steps" aria-label="Как оставить заявку"></ol>
+      </div>
+    </section>
+
+    <div class="pause-banner" id="pause-banner" role="status" hidden>
+      <div class="container pause-banner__inner">
+        <svg class="pause-banner__icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9.5 8.5v7M14.5 8.5v7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <div>
+          <p class="pause-banner__title">Приём заявок временно остановлен</p>
+          <p class="pause-banner__note" id="pause-note"></p>
+        </div>
+      </div>
+    </div>
+
+    <section class="section catalog" id="catalog" aria-labelledby="catalog-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <h2 class="section-title" id="catalog-title">Десерты</h2>
+          <p class="section-sub">Нажмите «Выбрать» — десерт попадёт в форму.</p>
+        </header>
+        <ul class="catalog__grid" id="catalog-grid"></ul>
+      </div>
+    </section>
+
+    <section class="section fillings" id="fillings" aria-labelledby="fillings-title">
+      <div class="container fillings__grid">
+        <figure class="fillings__media reveal">
+          <picture>
+            <source type="image/webp" srcset="images/web/fillings-480.webp 480w, images/web/fillings-900.webp 900w" sizes="(min-width: 960px) 46vw, 100vw">
+            <img src="images/web/fillings-900.webp" width="900" height="900" alt="" data-alt="fillings.alt" loading="lazy" decoding="async">
+          </picture>
+          <figcaption data-bind="fillings.caption"></figcaption>
+        </figure>
+        <div class="fillings__copy">
+          <h2 class="section-title reveal" id="fillings-title">Начинки</h2>
+          <p class="section-sub reveal">Бисквит печём сами, конфи варим из ягод. Начинку выберете в форме — у каждого десерта свой список.</p>
+          <dl class="menu" id="fillings-list"></dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="container about__grid">
+        <figure class="about__media reveal">
+          <picture>
+            <source type="image/webp" srcset="images/web/chef-hands-480.webp 480w, images/web/chef-hands-900.webp 900w" sizes="(min-width: 960px) 40vw, 100vw">
+            <img src="images/web/chef-hands-900.webp" width="900" height="900" alt="" data-alt="about.alt" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+        <div class="about__copy">
+          <h2 class="section-title reveal" id="about-title" data-bind="about.title">О кондитерской</h2>
+          <div class="about__text reveal" id="about-text"></div>
+          <ul class="facts reveal" id="about-facts"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section delivery" id="delivery" aria-labelledby="delivery-title">
+      <div class="container delivery__grid">
+        <div class="delivery__copy">
+          <h2 class="section-title reveal" id="delivery-title" data-bind="delivery.title">Упаковка и доставка</h2>
+          <p class="section-sub reveal" data-bind="delivery.lead"></p>
+          <div class="delivery__ways">
+            <div class="way reveal">
+              <svg class="way__icon" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><path d="M5 13 7.5 6h17L27 13M5 13h22v13H5zM5 13c0 2 1.6 3.4 3.7 3.4S12.3 15 12.3 13c0 2 1.6 3.4 3.7 3.4S19.7 15 19.7 13c0 2 1.6 3.4 3.6 3.4S27 15 27 13M13 26v-6h6v6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              <h3 class="way__title" data-bind="delivery.pickup.title"></h3>
+              <p data-bind="delivery.pickup.text"></p>
+            </div>
+            <div class="way reveal">
+              <svg class="way__icon" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><path d="M3 8h16v14H3zM19 13h5.5l4.5 5v4h-10z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="8.5" cy="23.5" r="2.5" fill="var(--cream)" stroke="currentColor" stroke-width="1.5"/><circle cx="23.5" cy="23.5" r="2.5" fill="var(--cream)" stroke="currentColor" stroke-width="1.5"/></svg>
+              <h3 class="way__title" data-bind="delivery.courier.title"></h3>
+              <p data-bind="delivery.courier.text"></p>
+            </div>
+          </div>
+        </div>
+        <figure class="delivery__media reveal">
+          <picture>
+            <source type="image/webp" srcset="images/web/gift-box-480.webp 480w, images/web/gift-box-900.webp 900w" sizes="(min-width: 960px) 42vw, 100vw">
+            <img src="images/web/gift-box-900.webp" width="900" height="900" alt="" data-alt="delivery.alt" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section order" id="order" aria-labelledby="order-title">
+      <div class="container order__container">
+        <header class="section-head reveal">
+          <h2 class="section-title" id="order-title">Заявка</h2>
+          <p class="section-sub">Оплаты на странице нет. Кондитер проверит дату, назовёт точную стоимость и договорится с вами об оплате.</p>
+          <p class="demo-badge" id="demo-badge" hidden>демо-режим: заявки остаются в этом браузере</p>
+        </header>
+
+        <div class="order__body" id="order-body">
+          <div class="order-paused" id="order-paused" role="status" hidden>
+            <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9.5 8.5v7M14.5 8.5v7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <div><b>Приём заявок временно остановлен</b><p id="order-paused-note">Форма откроется, когда кондитер снова начнёт принимать заказы. Каталог можно смотреть.</p></div>
+          </div>
+          <form class="order-form" id="order-form" novalidate>
+            <fieldset class="order-form__fieldset" id="order-fieldset">
+              <legend class="visually-hidden">Заявка на десерт</legend>
+
+              <div class="step" id="step-dessert">
+                <div class="step__head"><span class="step__num" aria-hidden="true">1</span><label class="step__title" for="f-dessert">Десерт</label></div>
+                <div class="select-wrap">
+                  <select id="f-dessert" name="dessertId" required aria-describedby="err-dessertId">
+                    <option value="">Выберите десерт</option>
+                  </select>
+                  <svg class="select-wrap__chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <p class="field-meta" id="dessert-meta" aria-live="polite"></p>
+                <p class="field-error" id="err-dessertId"></p>
+              </div>
+
+              <div class="step" id="step-filling">
+                <div class="step__head"><span class="step__num" aria-hidden="true">2</span><span class="step__title" id="filling-label">Начинка</span></div>
+                <div class="choices" id="filling-choices" role="radiogroup" aria-labelledby="filling-label" aria-describedby="err-filling">
+                  <p class="choices__empty">Сначала выберите десерт</p>
+                </div>
+                <p class="field-meta" id="filling-meta" aria-live="polite"></p>
+                <p class="field-error" id="err-filling"></p>
+              </div>
+
+              <div class="step" id="step-date">
+                <div class="step__head"><span class="step__num" aria-hidden="true">3</span><span class="step__title" id="date-label">Дата</span></div>
+                <div class="calendar" id="calendar" aria-describedby="err-date"></div>
+                <p class="visually-hidden" id="cal-live" aria-live="polite"></p>
+                <p class="field-error" id="err-date"></p>
+              </div>
+
+              <div class="step" id="step-pickup">
+                <div class="step__head"><span class="step__num" aria-hidden="true">4</span><span class="step__title" id="pickup-label">Получение</span></div>
+                <div class="segmented" role="radiogroup" aria-labelledby="pickup-label" aria-describedby="err-pickup">
+                  <label class="segmented__opt"><input type="radio" name="pickup" value="pickup"><span>Самовывоз</span></label>
+                  <label class="segmented__opt"><input type="radio" name="pickup" value="delivery"><span>Доставка</span></label>
+                </div>
+                <p class="field-meta" id="pickup-meta"></p>
+                <div class="field address-field" id="address-field" hidden>
+                  <label for="f-address">Адрес</label>
+                  <input id="f-address" name="address" type="text" autocomplete="street-address" maxlength="200" placeholder="Улица, дом, подъезд, этаж" aria-describedby="err-address">
+                  <p class="field-error" id="err-address"></p>
+                </div>
+                <p class="field-error" id="err-pickup"></p>
+              </div>
+
+              <div class="step" id="step-contact">
+                <div class="step__head"><span class="step__num" aria-hidden="true">5</span><span class="step__title">Ваши данные</span></div>
+                <div class="field">
+                  <label for="f-name">Имя</label>
+                  <input id="f-name" name="name" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="err-name">
+                  <p class="field-error" id="err-name"></p>
+                </div>
+                <div class="field">
+                  <label for="f-contact">Телефон или Telegram</label>
+                  <input id="f-contact" name="contact" type="text" inputmode="text" autocomplete="tel" autocapitalize="none" autocorrect="off" spellcheck="false" maxlength="64" required aria-describedby="contact-hint err-contact">
+                  <p class="field-hint" id="contact-hint" data-bind="form.contactHint"></p>
+                  <p class="field-error" id="err-contact"></p>
+                </div>
+                <div class="field">
+                  <label for="f-comment">Комментарий <span class="optional">(необязательно)</span></label>
+                  <textarea id="f-comment" name="comment" rows="3" maxlength="500" aria-describedby="comment-hint err-comment"></textarea>
+                  <p class="field-hint" id="comment-hint" data-bind="form.commentHint"></p>
+                  <p class="field-error" id="err-comment"></p>
+                </div>
+                <div class="field photo-field">
+                  <span class="field-label" id="photo-label">Фото-референс <span class="optional">(необязательно)</span></span>
+                  <div class="photo" id="photo">
+                    <label class="photo__pick" for="f-photo">
+                      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 8.5h3l1.6-2.5h6.8L17 8.5h3v10H4z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="13.2" r="3.2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                      <span>Прикрепить фото</span>
+                    </label>
+                    <input class="visually-hidden" id="f-photo" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" aria-labelledby="photo-label" aria-describedby="photo-hint err-photo">
+                    <div class="photo__preview" id="photo-preview" hidden>
+                      <img id="photo-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Выбранное фото-референс" width="64" height="64">
+                      <div class="photo__info"><span id="photo-name"></span><span class="photo__size" id="photo-size"></span></div>
+                      <button class="photo__remove" type="button" id="photo-remove" aria-label="Удалить фото">
+                        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                      </button>
+                    </div>
+                  </div>
+                  <p class="field-hint" id="photo-hint">Картинка торта, который нравится, или эскиз. До <span data-bind="form.photoMaxMb"></span> МБ.</p>
+                  <p class="field-error" id="err-photo"></p>
+                </div>
+                <div class="hp" aria-hidden="true">
+                  <label for="f-website">Не заполняйте это поле</label>
+                  <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+                </div>
+                <div class="consent">
+                  <label class="check">
+                    <input type="checkbox" id="f-consent" name="consent" required aria-describedby="err-consent">
+                    <span class="check__box" aria-hidden="true"><svg viewBox="0 0 16 16" width="14" height="14"><path d="m3.5 8.5 3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <span class="check__text">Я согласен(на) на обработку персональных данных — <a data-href="legal.consentUrl" href="consent.html" target="_blank" rel="noopener">Согласие</a> и <a data-href="legal.privacyUrl" href="privacy.html" target="_blank" rel="noopener">Политика</a></span>
+                  </label>
+                  <p class="field-error" id="err-consent"></p>
+                </div>
+              </div>
+            </fieldset>
+            <p class="form-error" id="form-error" role="alert" hidden></p>
+          </form>
+
+          <div class="success" id="success" tabindex="-1" hidden>
+            <svg class="success__check" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true"><circle cx="32" cy="32" r="29" pathLength="1"/><path d="m20 33 8 8 16-18" pathLength="1"/></svg>
+            <h3 class="success__title" id="success-title"></h3>
+            <p class="success__text" id="success-text"></p>
+            <p class="success__note" data-bind="form.replyNote"></p>
+            <dl class="summary" id="success-summary"></dl>
+            <button class="btn btn--outline" type="button" id="again">Отправить ещё одну</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="action-bar" id="action-bar" aria-hidden="true">
+    <div class="container action-bar__inner">
+      <p class="action-bar__price"><span class="action-bar__label">Примерная цена:</span> <strong id="bar-price"></strong><span class="action-bar__dot"> · </span><span class="action-bar__note">точную стоимость назовёт кондитер</span></p>
+      <button class="btn btn--primary action-bar__submit" type="submit" form="order-form" id="submit-btn" aria-disabled="true">
+        <span class="btn__label" id="submit-label">Отправить заявку</span>
+        <span class="btn__spinner" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div>
+        <p class="brand__logo brand__logo--footer" data-bind="bakery.logo"><!-- client:logo -->VANIL<!-- /client:logo --></p>
+        <p class="site-footer__tagline" data-bind="bakery.tagline"></p>
+      </div>
+      <address class="site-footer__contacts">
+        <a data-href="contacts.phoneHref" data-bind="contacts.phone" href="#"></a>
+        <span data-bind="contacts.email"></span>
+        <span data-bind="contacts.address"></span>
+        <span data-bind="contacts.hours"></span>
+<!-- client:fictional -->
+<!-- /client:fictional -->
+      </address>
+      <nav class="site-footer__legal" aria-label="Документы">
+        <a data-href="legal.consentUrl" href="consent.html">Согласие на обработку ПДн</a>
+        <a data-href="legal.privacyUrl" href="privacy.html">Политика конфиденциальности</a>
+      </nav>
+    </div>
+    <div class="container site-footer__bottom">
+      <p data-bind="product.footerNote">Окно заказов от ORDER FORGE</p>
+      <a class="site-footer__admin" href="admin.html" rel="nofollow">Вход для кондитерской</a>
+    </div>
+  </footer>
+</body>
+</html>

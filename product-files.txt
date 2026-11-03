@@ -1,0 +1,26 @@
+# ORDER FORGE — файлы ПРОДУКТА: одинаковые у всех кондитерских.
+# tools/new-client.mjs копирует их в новый сайт, tools/upgrade.mjs обновляет их у клиентов.
+# Всё, чего здесь нет, — файлы КЛИЕНТА (config.js, data/, images/web/, images/catalog/, images/favicon.svg,
+# client.json, handover/) или история демо (PLAN.md, DECISIONS.md, TEST_REPORT.md, clients/).
+# Клиентские места внутри HTML размечены <!-- client:имя --> … <!-- /client:имя --> и заполняются из client.json.
+index.html
+admin.html
+consent.html
+privacy.html
+css/
+js/
+apps-script/
+tools/
+tests/
+docs/
+.github/
+vercel.json
+.vercelignore
+.gitignore
+package.json
+product-files.txt
+VERSION
+CHANGELOG.md
+CLAUDE.md
+DESIGN.md
+PRODUCT.md

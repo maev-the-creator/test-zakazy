@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- client:admin-title -->
+  <title>Админка — Ваниль</title>
+  <!-- /client:admin-title -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#5B3A29">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Unbounded:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <script type="module" src="js/admin/app.js"></script>
+</head>
+<body class="admin">
+  <!-- Вход -->
+  <main class="login" id="login" hidden>
+    <div class="login__card">
+      <p class="brand__logo login__logo"><!-- client:logo -->VANIL<!-- /client:logo --></p>
+      <h1 class="login__title">Вход для администратора</h1>
+      <p class="login__lead">Здесь меняют ассортимент, фото, тексты и даты. Покупатели эту страницу не видят.</p>
+      <div class="login__google" id="google-box" hidden>
+        <div id="google-button"></div>
+        <p class="login__or"><span>или</span></p>
+      </div>
+      <form class="login__form" id="password-form" novalidate>
+        <label for="password">Пароль</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+        <button class="btn btn--primary" type="submit" id="password-submit">Войти</button>
+      </form>
+      <p class="form-error" id="login-error" role="alert" hidden></p>
+      <p class="login__demo" id="login-demo" hidden></p>
+      <a class="login__back" href="index.html">← На сайт</a>
+    </div>
+  </main>
+
+  <!-- Админка -->
+  <div class="adm" id="app" hidden>
+    <header class="adm__header">
+      <div class="adm__header-inner">
+        <a class="adm__brand" href="index.html" target="_blank" rel="noopener"><span class="brand__logo"><!-- client:logo -->VANIL<!-- /client:logo --></span><span class="adm__badge">админка</span></a>
+        <div class="adm__who">
+          <span id="who"></span>
+          <a class="adm__link" href="index.html" target="_blank" rel="noopener">Сайт ↗</a>
+          <button class="adm__link" type="button" id="logout">Выйти</button>
+        </div>
+      </div>
+      <nav class="adm__tabs" aria-label="Разделы">
+        <button type="button" data-tab="catalog" aria-current="page">Ассортимент</button>
+        <button type="button" data-tab="fillings">Начинки</button>
+        <button type="button" data-tab="texts">Тексты</button>
+        <button type="button" data-tab="days">Даты</button>
+        <button type="button" data-tab="orders">Заявки</button>
+        <button type="button" data-tab="reception">Приём</button>
+        <button type="button" data-tab="access">Доступ</button>
+      </nav>
+    </header>
+
+    <div class="adm__warn" id="server-note" role="alert" hidden></div>
+    <p class="adm__demo" id="demo-note" hidden>Демо-режим: изменения хранятся только в этом браузере, «Опубликовать» обновит витрину тоже только здесь. <button type="button" class="adm__link" id="demo-reset">Сбросить демо</button></p>
+
+    <main class="adm__main" id="panel" tabindex="-1"></main>
+
+    <div class="pubbar" id="pubbar">
+      <div class="pubbar__inner">
+        <div class="pubbar__info">
+          <p class="pubbar__title" id="pub-title">Всё опубликовано</p>
+          <p class="pubbar__list" id="pub-list"></p>
+        </div>
+        <button class="btn btn--primary" type="button" id="publish" aria-disabled="true">
+          <span class="btn__label">Опубликовать</span><span class="btn__spinner" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
