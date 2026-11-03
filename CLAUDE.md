@@ -7,7 +7,7 @@
 
 ## Продукт и клиенты
 - Этот репозиторий — **эталон** продукта; демо «Регалия» в нём — **клиент №0** (`clients/regalia.client.json`, `fictional: true`). У каждой кондитерской свой репозиторий.
-- **Файлы продукта** — список в `product-files.txt` (страницы, `css/`, `js/`, `apps-script/`, `tools/`, `tests/`, `docs/`…): одинаковые у всех, правятся только в эталоне и раскатываются `tools/upgrade.mjs`. Всё остальное — **файлы клиента**: `client.json`, `config.js`, `data/`, `images/web/`, `images/catalog/`, `images/favicon.svg`, `handover/`.
+- **Файлы продукта** — список в `product-files.txt` (страницы, `css/styles.css`, `css/admin.css`, `js/`, `apps-script/`, `tools/`, `tests/`, `docs/`…): одинаковые у всех, правятся только в эталоне и раскатываются `tools/upgrade.mjs`. Всё остальное — **файлы клиента**: `client.json`, `config.js`, `css/theme.css` (свой дизайн), `data/`, `images/web/`, `images/catalog/`, `images/favicon.svg`, `handover/`.
 - Клиентские места внутри страниц размечены `<!-- client:имя -->…<!-- /client:имя -->` (заголовки, превью ссылки, логотип, реквизиты в юр. страницах) — их заполняет `apply-client` из `client.json`; руками не правьте.
 - `Code.gs` одинаковый у всех: всё клиентское — в Script Properties (`SITE_URL`, `GITHUB_REPO`, `BAKERY_NAME`). Любая правка Code.gs → увеличить `SERVER_VERSION` (в PURE LOGIC) и пометить версию в `CHANGELOG.md` как **[сервер]**; новая структура листов → увеличить `SCHEMA_VERSION` (миграция `ensureMigrated_`).
 - Каталог правится руками только ради новых полей — тогда увеличить `version` в `data/catalog.json` (сервер берёт более новую версию сайта/снимка).
@@ -43,7 +43,7 @@ node <эталон>/tools/upgrade.mjs                  # в репозитори
 - **Секреты никогда не попадают в репозиторий** — ни в код, ни в конфиг, ни в доки, ни в тесты: `TELEGRAM_BOT_TOKEN`, `GITHUB_TOKEN`, `ADMIN_PASSWORD(_HASH)` — только в Script Properties. Тест `parity` ищет похожие на токен строки. `GOOGLE_CLIENT_ID` — не секрет.
 - Тексты: «Отправить заявку», «Заявка отправлена — кондитер свяжется…». Никогда «заказ подтверждён» / «оформить заказ». Цена — только диапазон с пометкой про кондитера.
 - Пользовательский ввод — только через `textContent` (в браузере) и `escapeHtml` (Telegram), `sheetSafe` (таблица).
-- Палитра строго: шоколад `#5B3A29`, ягодный `#B03A5B` только для акцентов, крем `#F7F1E8`; оранжевого нет.
+- **Дизайн у каждого клиента свой**: `css/theme.css` переопределяет токены и роли из `css/styles.css` (`--choc` — главный тёмный, `--berry` — акцент текста, `--cream` — фон; `--hero-*`, `--surface`, `--badge-*`, `--bar-*`). Шрифты общие (Unbounded + Golos Text). В `styles.css` не вписывайте цвета клиента — только токены. Палитра «Регалии» (по умолчанию): шоколад `#5B3A29`, ягодный `#B03A5B` только для акцентов, крем `#F7F1E8`. Тема «Ваниль» — `clients/example.theme.css`. Контраст текста ≥ 4.5:1 в любой теме.
 - Анимации: только `transform`/`opacity`/`clip-path`, ease-out, hover только под `(hover: hover) and (pointer: fine)`, уважать `prefers-reduced-motion`.
 - Мобильная версия главная: от 360px, тап-зоны ≥ 44px, поля ≥ 16px, без горизонтального скролла.
 - Не коммитить `node_modules`, скриншоты из `screenshots/`, временные файлы.

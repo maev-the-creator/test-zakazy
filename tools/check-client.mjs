@@ -35,6 +35,7 @@ export async function checkClient({ root = process.cwd(), clientFile } = {}) {
       for (const w of [480, 900]) if (!fs.existsSync(path.join(root, `${d.image}-${w}.${ext}`))) problems.push(`нет фото ${d.image}-${w}.${ext} («${d.name}»)`);
     }
   }
+  if (!fs.existsSync(path.join(root, 'css', 'theme.css'))) problems.push('нет css/theme.css (тема клиента; страницы его подключают)');
   for (const n of PAGE_IMAGES) if (!fs.existsSync(path.join(root, 'images', 'web', n + '.webp'))) problems.push(`нет фото страницы images/web/${n}.webp`);
 
   // 2. Клиентские блоки страниц совпадают с client.json

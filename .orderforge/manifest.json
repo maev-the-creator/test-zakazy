@@ -1,12 +1,12 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "files": [
     "index.html",
     "admin.html",
     "consent.html",
     "privacy.html",
-    "css/admin.css",
     "css/styles.css",
+    "css/admin.css",
     "js/admin/api.js",
     "js/admin/app.js",
     "js/admin/mock-admin.js",

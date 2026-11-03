@@ -18,7 +18,7 @@ body.admin { background: var(--cream); padding-bottom: calc(96px + env(safe-area
 .login__form { display: grid; gap: 8px; margin-top: 20px; }
 .login__form label { font-weight: 500; font-size: 0.9375rem; }
 .login__form input { width: 100%; min-height: 52px; padding: 13px 16px; font-size: 1rem; background: #fff; border: 1.5px solid var(--line-strong); border-radius: var(--r-field); }
-.login__form input:focus { outline: none; border-color: var(--choc); box-shadow: 0 0 0 3px rgb(91 58 41 / 0.14); }
+.login__form input:focus { outline: none; border-color: var(--choc); box-shadow: 0 0 0 3px var(--focus-ring); }
 .login__form .btn { margin-top: 8px; }
 .login__demo { margin-top: 16px; padding: 12px 14px; border-radius: 12px; border: 1px dashed var(--line-strong); font-size: 0.875rem; color: var(--ink-muted); }
 .login__demo b { color: var(--ink); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
@@ -127,7 +127,7 @@ body.admin { background: var(--cream); padding-bottom: calc(96px + env(safe-area
   border: 1.5px solid var(--line-strong); border-radius: var(--r-field); color: var(--ink);
 }
 .f textarea { min-height: 88px; resize: vertical; line-height: 1.5; }
-.f input:focus, .f textarea:focus, .f select:focus { outline: none; border-color: var(--choc); box-shadow: 0 0 0 3px rgb(91 58 41 / 0.14); }
+.f input:focus, .f textarea:focus, .f select:focus { outline: none; border-color: var(--choc); box-shadow: 0 0 0 3px var(--focus-ring); }
 .f [aria-invalid="true"] { border-color: var(--berry); }
 .f input[aria-invalid="true"]:focus, .f textarea[aria-invalid="true"]:focus { outline: 2px solid var(--berry); outline-offset: 2px; box-shadow: none; }
 .f__err { font-size: var(--fs-small); color: var(--berry); font-weight: 500; }
@@ -145,7 +145,7 @@ body.admin { background: var(--cream); padding-bottom: calc(96px + env(safe-area
 
 /* Начинки-чипы */
 .tags-input { display: flex; flex-wrap: wrap; gap: 8px; padding: 8px; min-height: 52px; background: #fff; border: 1.5px solid var(--line-strong); border-radius: var(--r-field); }
-.tags-input:focus-within { border-color: var(--choc); box-shadow: 0 0 0 3px rgb(91 58 41 / 0.14); }
+.tags-input:focus-within { border-color: var(--choc); box-shadow: 0 0 0 3px var(--focus-ring); }
 .tags-input input { flex: 1; min-width: 140px; min-height: 36px; border: 0; padding: 4px 6px; font-size: 1rem; outline: none; background: transparent; }
 .chip-x { display: inline-flex; align-items: center; gap: 4px; padding: 4px 4px 4px 12px; border-radius: 999px; background: var(--cream-deep); font-size: 0.9375rem; }
 .chip-x button { display: grid; place-items: center; width: 32px; height: 32px; border: 0; border-radius: 50%; background: transparent; color: var(--ink-muted); }
@@ -193,10 +193,10 @@ body.admin { background: var(--cream); padding-bottom: calc(96px + env(safe-area
 /* ---------- Панель публикации ---------- */
 .pubbar {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
-  background: rgb(255 251 245 / 0.94); border-top: 1px solid var(--line); box-shadow: var(--shadow-bar);
+  background: var(--bar-bg); border-top: 1px solid var(--line); box-shadow: var(--shadow-bar);
   padding-bottom: env(safe-area-inset-bottom);
 }
-@supports (backdrop-filter: blur(8px)) { .pubbar { background: rgb(255 251 245 / 0.84); backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2); } }
+@supports (backdrop-filter: blur(8px)) { .pubbar { background: var(--bar-bg-blur); backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2); } }
 .pubbar__inner { display: flex; align-items: center; justify-content: space-between; gap: 12px 24px; max-width: 1240px; margin: 0 auto; padding: 12px var(--gutter); }
 .pubbar__info { min-width: 0; }
 .pubbar__title { font-weight: 600; }

@@ -55,3 +55,12 @@ test('файлы продукта существуют и не включают 
   assert.ok(files.includes('apps-script/Code.gs') && files.includes('js/app.js') && files.includes('index.html'));
   for (const f of files) assert.ok(!/^(config\.js|data\/|images\/|client\.json|clients\/|handover\/)/.test(f), f);
 });
+
+test('тема клиента: css/theme.css подключается последним на всех страницах и не входит в файлы продукта', () => {
+  for (const page of ['index.html', 'admin.html', 'consent.html', 'privacy.html']) {
+    const links = [...fs.readFileSync(path.join(ROOT, page), 'utf8').matchAll(/<link rel="stylesheet" href="([^"]+)">/g)].map((m) => m[1]);
+    assert.equal(links[links.length - 1], 'css/theme.css', page);
+  }
+  assert.ok(fs.existsSync(path.join(ROOT, 'css', 'theme.css')));
+  assert.ok(!listProductFiles(ROOT).includes('css/theme.css'), 'тема — файл клиента, upgrade её не трогает');
+});

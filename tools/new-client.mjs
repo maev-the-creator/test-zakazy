@@ -7,7 +7,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { PRODUCT_ROOT, listProductFiles, loadClient, VERSION } from './client-lib.mjs';
+import { PRODUCT_ROOT, listProductFiles, loadClient, VERSION, DEFAULT_THEME_CSS } from './client-lib.mjs';
 import { applyClient } from './apply-client.mjs';
 import { checkClient } from './check-client.mjs';
 
@@ -33,6 +33,11 @@ export async function newClient(clientFile, dest, { test = true, log = console.l
     execFileSync('python3', [path.join(dest, 'tools', 'make-images.py'), src, web], { stdio: 'inherit' });
   } else throw new Error('В client.json не указаны фото (photos: папка с оригиналами или "demo").');
 
+  // Тема (свой дизайн клиента): файл из client.json → css/theme.css. Дальше это файл клиента.
+  fs.mkdirSync(path.join(dest, 'css'), { recursive: true });
+  const themeFile = c.theme && c.theme.file ? path.resolve(path.dirname(clientFile), c.theme.file) : null;
+  if (themeFile && !fs.existsSync(themeFile)) throw new Error(`Нет файла темы ${themeFile}`);
+  fs.writeFileSync(path.join(dest, 'css', 'theme.css'), themeFile ? fs.readFileSync(themeFile, 'utf8') : DEFAULT_THEME_CSS);
   fs.copyFileSync(clientFile, path.join(dest, 'client.json'));
   fs.writeFileSync(path.join(dest, 'README.md'), `# Окно заказов «${c.bakery.name}»\n\nСайт на ORDER FORGE ${VERSION()}. Ассортимент, фото и тексты меняются в админке: \`/admin.html\`.\nДля разработчика: \`CLAUDE.md\`, \`docs/NEW_CLIENT.md\`.\n`);
   fs.mkdirSync(path.join(dest, '.orderforge'), { recursive: true });

@@ -89,10 +89,12 @@ export function htmlBlocks(c, catalog = {}) {
   const ogDescription = typo(seo.ogDescription || 'Выберите десерт и дату — заявка сразу придёт кондитеру.');
   const img = (site ? site + '/' : '') + 'images/web/hero-1152.webp';
   const contacts = catalog.contacts || {};
+  const t = themeColors(c);
+  const themeColor = `\n  <meta name="theme-color" content="${esc(t.meta)}">\n  `;
   let head = '\n'
     + `  <title>${esc(title)}</title>\n`
     + `  <meta name="description" content="${esc(description)}">\n`
-    + '  <meta name="theme-color" content="#5B3A29">\n'
+    + `  <meta name="theme-color" content="${esc(t.meta)}">\n`
     + '  <meta name="color-scheme" content="light">\n'
     + `  <meta property="og:title" content="${esc(ogTitle)}">\n`
     + `  <meta property="og:description" content="${esc(ogDescription)}">\n`
@@ -119,16 +121,19 @@ export function htmlBlocks(c, catalog = {}) {
     },
     'admin.html': {
       'admin-title': `\n  <title>Админка — ${esc(b.name)}</title>\n  `,
+      'theme-color': themeColor,
       logo,
     },
     'consent.html': {
       'doc-title': `\n  <title>Согласие на обработку персональных данных — ${esc(b.name)}</title>\n  `,
+      'theme-color': themeColor,
       'legal-note': '\n' + (fictional ? LEGAL_NOTES['consent.html'] : ''),
       operator: `\n    <p>Отправляя заявку на сайте кондитерской «${esc(b.name)}» и отмечая галочку «Я согласен(на) на обработку персональных данных», я свободно, своей волей и в своём интересе даю согласие оператору — <b>${esc(L.operator)}</b> (${details}, адрес: ${esc(L.address)}; e-mail: ${esc(L.email)}${fictional ? '; данные вымышлены' : ''}) — на обработку моих персональных данных на следующих условиях.</p>\n`,
       edition,
     },
     'privacy.html': {
       'doc-title': `\n  <title>Политика конфиденциальности — ${esc(b.name)}</title>\n  `,
+      'theme-color': themeColor,
       'legal-note': '\n' + (fictional ? LEGAL_NOTES['privacy.html'] : ''),
       operator: `\n    <p>Оператор персональных данных — ${esc(L.operator)} (кондитерская «${esc(b.name)}»), ${details}, ${esc(L.address)}, e-mail: ${esc(L.email)}.${fictional ? ' Данные вымышлены и приведены для демонстрации.' : ''}</p>\n`,
       email: esc(L.email),
@@ -196,10 +201,21 @@ export const CONFIG = {
 `;
 }
 
+// ---------- Тема клиента ----------
+/** Цвета для вкладки браузера и иконки сайта (сама тема — файл клиента css/theme.css). */
+export function themeColors(c) {
+  const t = c.theme || {};
+  const hex = (v, d) => (/^#[0-9a-f]{6}$/i.test(String(v || '')) ? v : d);
+  return { meta: hex(t.metaColor, '#5B3A29'), iconBg: hex(t.iconBg, '#5B3A29'), iconFg: hex(t.iconFg, '#F7F1E8'), iconAccent: hex(t.iconAccent, '#B03A5B') };
+}
+
+export const DEFAULT_THEME_CSS = '/* Тема кондитерской (файл КЛИЕНТА: обновления продукта его не трогают).\n   Оформление по умолчанию задано в css/styles.css; здесь переопределяются токены и детали. */\n';
+
 // ---------- Иконка ----------
 export function faviconSvg(c) {
+  const t = themeColors(c);
   const letter = esc(Array.from(String(c.bakery.logo).trim())[0] || 'O').toUpperCase();
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#5B3A29"/><text x="32" y="45" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="38" fill="#F7F1E8">${letter}</text><path d="M16 52c10-2 21-2.5 32-1" fill="none" stroke="#B03A5B" stroke-width="3" stroke-linecap="round"/></svg>\n`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="${t.iconBg}"/><text x="32" y="45" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="38" fill="${t.iconFg}">${letter}</text><path d="M16 52c10-2 21-2.5 32-1" fill="none" stroke="${t.iconAccent}" stroke-width="3" stroke-linecap="round"/></svg>\n`;
 }
 
 // ---------- Каталог ----------
