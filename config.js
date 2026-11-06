@@ -13,7 +13,7 @@
 export const CONFIG = {
   // Адрес веб-приложения Google Apps Script (см. docs/SETUP_GOOGLE.md).
   // Пустая строка '' включает демо-режим (для видео: ?demo=reset, ?demo=paused).
-  APPS_SCRIPT_URL: '',
+  APPS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbztIkolfazi2kyevv1d9DCacsdLofEPizvGGxBgVHZ8pR3XoUg4A18hxvjmHZBwrDAKkA/exec',
 
   // OAuth Client ID для входа в админку через Google (не секрет, см. docs/SETUP_GOOGLE.md, шаг 11).
   // Пусто — кнопки «Войти через Google» нет, работает только вход по паролю.
