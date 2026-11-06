@@ -1,9 +1,9 @@
 // АВТОМАТИЧЕСКИ: генерируется из data/catalog.json (админка → «Опубликовать» или npm run build-catalog).
 // Не редактируйте вручную.
 export const CATALOG = {
-  "version": 1,
-  "publishedAt": "2026-11-03T16:22:46.033Z",
-  "publishedBy": "разработчик",
+  "version": 2,
+  "publishedAt": "2026-11-06T16:58:45.640Z",
+  "publishedBy": "админка",
   "hero": {
     "title": "Десерты к вашей дате",
     "titleLines": [
@@ -25,19 +25,19 @@ export const CATALOG = {
     {
       "id": "bento",
       "visible": true,
-      "name": "Бенто-торт «Пудра»",
+      "name": "Бенто-торт «Сучка",
       "description": "Маленький торт на 1–2 персоны в крафтовой коробочке: пудрово-розовый крем, кремовый бортик и сухоцветы.",
       "fillings": [
         "Ваниль-клубника",
-        "Шоколад-вишня",
-        "Фисташка-малина"
+        "Шоколад-вишня"
       ],
       "priceMin": 1900,
-      "priceMax": 2400,
+      "priceMax": 10000000,
       "unit": "за торт ~450 г",
       "leadDays": 2,
       "badge": "Хит",
       "image": "images/web/bento",
+      "imageExt": "webp",
       "alt": "Розовый бенто-торт с кремовыми розетками и сухоцветами в открытой крафтовой коробке"
     },
     {
@@ -57,6 +57,7 @@ export const CATALOG = {
       "leadDays": 3,
       "badge": "",
       "image": "images/web/birthday",
+      "imageExt": "webp",
       "alt": "Высокий белый торт с шоколадными подтёками, клубникой, голубикой и макарон на мраморной подставке"
     },
     {
@@ -77,6 +78,7 @@ export const CATALOG = {
       "leadDays": 14,
       "badge": "Фирменный",
       "image": "images/web/wedding",
+      "imageExt": "webp",
       "alt": "Белый трёхъярусный свадебный торт с каскадом розовых и кремовых роз на золотой подставке"
     },
     {
@@ -95,6 +97,7 @@ export const CATALOG = {
       "leadDays": 5,
       "badge": "",
       "image": "images/web/kids",
+      "imageExt": "webp",
       "alt": "Двухъярусный торт в пастельных радужных полосах с безе и сахарными шариками"
     },
     {
@@ -114,6 +117,7 @@ export const CATALOG = {
       "leadDays": 2,
       "badge": "",
       "image": "images/web/cupcakes",
+      "imageExt": "webp",
       "alt": "Шесть капкейков в белой коробке: с ягодами, малиновым и фисташковым кремом"
     },
     {
@@ -132,6 +136,7 @@ export const CATALOG = {
       "leadDays": 2,
       "badge": "Новинка",
       "image": "images/web/macarons",
+      "imageExt": "webp",
       "alt": "Двенадцать пастельных макарон в светлой коробке на мраморе"
     },
     {
@@ -149,6 +154,7 @@ export const CATALOG = {
       "leadDays": 2,
       "badge": "",
       "image": "images/web/cheesecake",
+      "imageExt": "webp",
       "alt": "Чизкейк «Нью-Йорк» с ягодным соусом, клубникой и голубикой, рядом отрезанный кусочек"
     },
     {
@@ -165,6 +171,7 @@ export const CATALOG = {
       "leadDays": 3,
       "badge": "",
       "image": "images/web/dessert-set",
+      "imageExt": "webp",
       "alt": "Деревянная доска с тарталетками, эклерами, мини-чизкейками и рулетиками из безе"
     }
   ],
